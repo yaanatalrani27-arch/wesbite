@@ -10,8 +10,9 @@ export default function Logo({ appName, themeColor = '#F59E0B', className = '' }
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <h1 className="text-2xl font-bold tracking-tight">
-        <span className="text-amber-500">Prismic</span>
-        <span className="text-slate-900">X</span>
+        <span className="bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+          Prismicx
+        </span>
         {appName && (
           <>
             <span className="text-slate-400 mx-2">·</span>

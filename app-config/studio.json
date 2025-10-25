@@ -1,8 +1,8 @@
 {
   "name": "Studio",
-  "themeColor": "#F59E0B",
-  "themeColorLight": "#FCD34D",
-  "themeColorDark": "#D97706",
+  "themeColor": "#06B6D4",
+  "themeColorLight": "#22D3EE",
+  "themeColorDark": "#0891B2",
   "contentRefs": {
     "hero": {
       "title": "We Build Digital Excellence",
@@ -43,7 +43,9 @@
         "category": "SaaS Product",
         "tech": ["React", "AI/ML", "Firebase"],
         "link": "/apps/mastersearch",
-        "status": "Live"
+        "status": "Live",
+        "icon": "Search",
+        "themeColor": "#14B8A6"
       },
       {
         "name": "CallAI",
@@ -51,7 +53,9 @@
         "category": "AI Tool",
         "tech": ["Next.js", "AI", "WebRTC"],
         "link": "#",
-        "status": "Coming Soon"
+        "status": "Coming Soon",
+        "icon": "Phone",
+        "themeColor": "#8B5CF6"
       },
       {
         "name": "Vision",
@@ -59,7 +63,9 @@
         "category": "AI Product",
         "tech": ["React", "Computer Vision", "TensorFlow"],
         "link": "#",
-        "status": "Coming Soon"
+        "status": "Coming Soon",
+        "icon": "Eye",
+        "themeColor": "#3B82F6"
       }
     ],
     "stats": [

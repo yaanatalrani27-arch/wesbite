@@ -1,247 +1,170 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { ArrowRight, Search, Phone, Eye, Lightbulb, Award, Heart, Shield, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, Users, Award, TrendingUp } from 'lucide-react';
 import rootConfig from '../../app-config/root.json';
 
 export default function Home() {
   const { themeColor, contentRefs } = rootConfig;
 
-  const iconMap: Record<string, React.ReactNode> = {
-    Search: <Search size={32} />,
-    Phone: <Phone size={32} />,
-    Eye: <Eye size={32} />,
-    Lightbulb: <Lightbulb size={24} />,
-    Award: <Award size={24} />,
-    Heart: <Heart size={24} />,
-    Shield: <Shield size={24} />
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
+    <div className="min-h-screen bg-slate-950 text-white">
       <Navbar
         themeColor={themeColor}
         links={[
-          { label: 'Products', href: '#products' },
           { label: 'Studio', href: '/studio' },
           { label: 'About', href: '#about' },
           { label: 'Contact', href: '#contact' }
         ]}
-        ctaLabel="Get Started"
-        ctaHref="#products"
+        ctaLabel="View Studio"
+        ctaHref="/studio"
       />
 
       <main className="pt-24">
-        <section className="py-20 px-4 relative overflow-hidden">
+        <section className="relative py-32 px-4 overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
-            <div className="absolute top-40 right-10 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse animation-delay-2000" />
-            <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse animation-delay-4000" />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-red-500/20 via-yellow-500/20 to-green-500/20 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
           </div>
 
           <div className="max-w-7xl mx-auto relative z-10">
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-700 font-semibold mb-6">
-                <Sparkles size={18} />
-                <span>Powered by AI & Innovation</span>
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-slate-300 mb-8">
+                <Sparkles size={18} className="text-yellow-400" />
+                <span className="text-sm font-medium">Where Innovation Meets Precision</span>
               </div>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 mb-6 leading-tight">
-                {contentRefs.hero.title}
+
+              <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+                <span className="bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                  {contentRefs.hero.title}
+                </span>
               </h1>
-              <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+
+              <p className="text-xl md:text-2xl text-slate-400 mb-12 max-w-4xl mx-auto leading-relaxed">
                 {contentRefs.hero.subtitle}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="#products"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-white text-lg transition-all hover:scale-105 hover:shadow-xl"
-                  style={{ backgroundColor: themeColor }}
-                >
-                  {contentRefs.hero.cta}
-                  <ArrowRight size={20} />
-                </a>
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
                 <a
                   href="/studio"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-slate-900 text-lg bg-white hover:bg-slate-50 transition-all shadow-md hover:shadow-lg"
+                  className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl font-semibold text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50"
+                >
+                  <span>{contentRefs.hero.cta}</span>
+                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl font-semibold text-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all"
                 >
                   {contentRefs.hero.secondaryCta}
                 </a>
               </div>
             </div>
-          </div>
-        </section>
 
-        <section className="py-20 px-4 bg-white">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              {contentRefs.stats.map((stat, index) => (
-                <div key={index}>
-                  <div className="text-4xl md:text-5xl font-bold mb-2" style={{ color: themeColor }}>
-                    {stat.value}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {contentRefs.expertise.map((item, index) => (
+                <div key={index} className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all">
+                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+                      {item.value}
+                    </div>
+                    <div className="text-sm text-slate-400">{item.label}</div>
                   </div>
-                  <div className="text-slate-600">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="products" className="py-20 px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-                Our Products
+        <section id="about" className="py-24 px-4 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
+
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="text-center mb-20">
+              <h2 className="text-5xl md:text-6xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent">
+                  {contentRefs.about.title}
+                </span>
               </h2>
-              <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                Intelligent tools designed to transform your workflow
+              <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+                {contentRefs.about.subtitle}
               </p>
             </div>
+
             <div className="grid md:grid-cols-3 gap-8">
-              {contentRefs.products.map((product, index) => (
-                <div
-                  key={index}
-                  className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 w-32 h-32 opacity-10 transform translate-x-8 -translate-y-8">
-                    <div
-                      className="w-full h-full rounded-full"
-                      style={{ backgroundColor: product.themeColor }}
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <div className="flex items-start justify-between mb-4">
-                      <div
-                        className="w-16 h-16 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
-                        style={{ backgroundColor: `${product.themeColor}20` }}
-                      >
-                        <div style={{ color: product.themeColor }}>
-                          {iconMap[product.icon]}
-                        </div>
-                      </div>
-                      <div
-                        className="px-3 py-1 rounded-full text-xs font-semibold"
-                        style={{
-                          backgroundColor: product.status === 'Live' ? `${product.themeColor}20` : '#e2e8f0',
-                          color: product.status === 'Live' ? product.themeColor : '#64748b'
-                        }}
-                      >
-                        {product.status}
-                      </div>
-                    </div>
-
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3">{product.name}</h3>
-                    <p className="text-slate-600 mb-6">{product.description}</p>
-
-                    {product.status === 'Live' ? (
-                      <a
-                        href={product.link}
-                        className="inline-flex items-center gap-2 font-semibold group-hover:gap-3 transition-all"
-                        style={{ color: product.themeColor }}
-                      >
-                        Learn More <ArrowRight size={18} />
-                      </a>
-                    ) : (
-                      <span className="text-slate-400 font-semibold">
-                        Coming Soon
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 px-4 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  {contentRefs.services.title}
-                </h2>
-                <p className="text-xl text-slate-300 mb-8">
-                  {contentRefs.services.subtitle}
-                </p>
-                <a
-                  href={contentRefs.services.link}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-slate-900 bg-white hover:bg-slate-100 text-lg transition-all hover:scale-105"
-                >
-                  Visit Studio
-                  <ArrowRight size={20} />
-                </a>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                  <div className="text-3xl font-bold mb-2" style={{ color: themeColor }}>50+</div>
-                  <div className="text-slate-300">Projects</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                  <div className="text-3xl font-bold mb-2" style={{ color: themeColor }}>30+</div>
-                  <div className="text-slate-300">Clients</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                  <div className="text-3xl font-bold mb-2" style={{ color: themeColor }}>5+</div>
-                  <div className="text-slate-300">Years</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                  <div className="text-3xl font-bold mb-2" style={{ color: themeColor }}>100%</div>
-                  <div className="text-slate-300">Satisfaction</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="about" className="py-20 px-4 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-                Why Choose PrismicX
-              </h2>
-              <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                We combine innovation, quality, and reliability to deliver exceptional results
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {contentRefs.values.map((value, index) => (
-                <div key={index} className="text-center">
-                  <div
-                    className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4"
-                    style={{ backgroundColor: `${themeColor}20` }}
-                  >
-                    <div style={{ color: themeColor }}>
-                      {iconMap[value.icon]}
+                <div key={index} className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      {value.icon === 'Zap' && <Zap size={28} className="text-blue-400" />}
+                      {value.icon === 'Users' && <Users size={28} className="text-purple-400" />}
+                      {value.icon === 'Award' && <Award size={28} className="text-green-400" />}
+                      {value.icon === 'TrendingUp' && <TrendingUp size={28} className="text-yellow-400" />}
                     </div>
+                    <h3 className="text-2xl font-bold text-white mb-3">{value.title}</h3>
+                    <p className="text-slate-400 leading-relaxed">{value.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{value.title}</h3>
-                  <p className="text-slate-600">{value.description}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="contact" className="py-20 px-4 bg-gradient-to-br from-amber-50 to-white">
+        <section className="py-24 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="relative rounded-3xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-90" />
+              <div className="absolute inset-0">
+                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+              </div>
+
+              <div className="relative z-10 py-20 px-8 text-center">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                  {contentRefs.approach.title}
+                </h2>
+                <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
+                  {contentRefs.approach.subtitle}
+                </p>
+
+                <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto mb-12">
+                  {contentRefs.approach.steps.map((step, index) => (
+                    <div key={index} className="text-center">
+                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-2xl font-bold text-white mx-auto mb-4 border border-white/30">
+                        {step.number}
+                      </div>
+                      <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+                      <p className="text-sm text-blue-100">{step.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="py-24 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Ready to Get Started?
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                {contentRefs.contact.title}
+              </span>
             </h2>
-            <p className="text-xl text-slate-600 mb-10">
-              Explore our products or get in touch to discuss custom solutions
+            <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
+              {contentRefs.contact.subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <a
-                href="#products"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-white text-lg transition-all hover:scale-105 hover:shadow-xl"
-                style={{ backgroundColor: themeColor }}
+                href="/studio"
+                className="group inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl font-semibold text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50"
               >
-                View Products
-                <ArrowRight size={20} />
+                <span>Explore Studio</span>
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a
                 href="mailto:hello@prismicx.com"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-slate-900 text-lg bg-white hover:bg-slate-50 transition-all shadow-md hover:shadow-lg"
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl font-semibold text-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all"
               >
                 Contact Us
               </a>

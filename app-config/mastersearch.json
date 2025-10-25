@@ -46,7 +46,12 @@
   },
   "appVariable": {
     "launchUrl": "https://mastersearch.prismicx.com/app",
-    "demoUrl": "https://mastersearch.prismicx.com/demo"
+    "demoUrl": "https://mastersearch.prismicx.com/demo",
+    "version": "v2.1.0",
+    "downloads": {
+      "mac": "https://mastersearch.prismicx.com/download/mastersearch-v2.1.0-mac.dmg",
+      "windows": "https://mastersearch.prismicx.com/download/mastersearch-v2.1.0-windows.exe"
+    }
   },
   "contentRefs": {
     "hero": {
