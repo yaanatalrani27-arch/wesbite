@@ -1,0 +1,74 @@
+{
+  "themeColor": "#F59E0B",
+  "contentRefs": {
+    "hero": {
+      "title": "Building Tomorrow's Intelligent Tools",
+      "subtitle": "PrismicX creates premium software products and digital experiences that empower businesses to work smarter.",
+      "cta": "Explore Products",
+      "secondaryCta": "View Studio"
+    },
+    "products": [
+      {
+        "name": "MasterSearch",
+        "description": "AI-powered search intelligence that finds exactly what you need",
+        "icon": "Search",
+        "themeColor": "#14B8A6",
+        "link": "/apps/mastersearch",
+        "status": "Live"
+      },
+      {
+        "name": "CallAI",
+        "description": "Intelligent call analytics and automation platform",
+        "icon": "Phone",
+        "themeColor": "#8B5CF6",
+        "link": "#",
+        "status": "Coming Soon"
+      },
+      {
+        "name": "Vision",
+        "description": "Visual recognition and analysis powered by advanced AI",
+        "icon": "Eye",
+        "themeColor": "#3B82F6",
+        "link": "#",
+        "status": "Coming Soon"
+      }
+    ],
+    "services": {
+      "title": "Studio Services",
+      "subtitle": "Need something custom? Our studio builds production-ready applications",
+      "link": "/studio"
+    },
+    "stats": [
+      { "value": "10M+", "label": "API Calls Served" },
+      { "value": "50K+", "label": "Active Users" },
+      { "value": "99.9%", "label": "Uptime" },
+      { "value": "24/7", "label": "Support" }
+    ],
+    "values": [
+      {
+        "title": "Innovation First",
+        "description": "We push boundaries with cutting-edge technology and creative solutions.",
+        "icon": "Lightbulb"
+      },
+      {
+        "title": "Quality Obsessed",
+        "description": "Every detail matters. We build products we're proud to put our name on.",
+        "icon": "Award"
+      },
+      {
+        "title": "User Focused",
+        "description": "Beautiful interfaces and intuitive experiences that users love.",
+        "icon": "Heart"
+      },
+      {
+        "title": "Always Reliable",
+        "description": "Enterprise-grade infrastructure with world-class support.",
+        "icon": "Shield"
+      }
+    ]
+  },
+  "metaTitle": "PrismicX - Intelligent Tools & Digital Solutions",
+  "metaDescription": "Building tomorrow's intelligent tools. AI-powered products and custom digital solutions that transform how businesses work.",
+  "ogImage": "/images/og-prismicx.jpg",
+  "canonicalURL": "https://prismicx.com"
+}

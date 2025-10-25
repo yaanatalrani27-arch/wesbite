@@ -1,0 +1,125 @@
+{
+  "appName": "MasterSearch",
+  "themeColor": "#14B8A6",
+  "themeColorLight": "#5EEAD4",
+  "themeColorDark": "#0F766E",
+  "logoVariant": "colorful",
+  "pricing": {
+    "free": {
+      "name": "Free",
+      "price": "$0",
+      "period": "forever",
+      "features": [
+        "5 searches per day",
+        "Basic AI insights",
+        "Standard search speed",
+        "Community support"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "$19",
+      "period": "per month",
+      "features": [
+        "Unlimited searches",
+        "Advanced AI insights",
+        "Lightning-fast results",
+        "Priority support",
+        "Export capabilities",
+        "API access"
+      ],
+      "popular": true
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "Custom",
+      "period": "contact us",
+      "features": [
+        "Everything in Pro",
+        "Custom integrations",
+        "Dedicated support",
+        "SLA guarantees",
+        "On-premise deployment",
+        "Training & onboarding"
+      ]
+    }
+  },
+  "appVariable": {
+    "launchUrl": "https://mastersearch.prismicx.com/app",
+    "demoUrl": "https://mastersearch.prismicx.com/demo"
+  },
+  "contentRefs": {
+    "hero": {
+      "title": "Master Every Search",
+      "subtitle": "AI-powered search intelligence that finds exactly what you need, when you need it.",
+      "cta": "Start Searching",
+      "secondaryCta": "Watch Demo"
+    },
+    "features": [
+      {
+        "title": "AI-Powered Intelligence",
+        "description": "Advanced algorithms understand context and intent, delivering results that matter.",
+        "icon": "Brain"
+      },
+      {
+        "title": "Lightning Fast",
+        "description": "Get results in milliseconds. Our optimized infrastructure ensures instant responses.",
+        "icon": "Zap"
+      },
+      {
+        "title": "Smart Filters",
+        "description": "Refine searches with intelligent filters that learn from your behavior.",
+        "icon": "Filter"
+      },
+      {
+        "title": "Cross-Platform",
+        "description": "Search across multiple data sources simultaneously with unified results.",
+        "icon": "Globe"
+      },
+      {
+        "title": "Export & Share",
+        "description": "Save and share search results with your team in multiple formats.",
+        "icon": "Share2"
+      },
+      {
+        "title": "Secure & Private",
+        "description": "Enterprise-grade security with end-to-end encryption for all searches.",
+        "icon": "Shield"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "MasterSearch transformed how our team finds information. It's like having a research assistant that never sleeps.",
+        "author": "Sarah Chen",
+        "role": "Head of Research, TechCorp",
+        "avatar": "SC"
+      },
+      {
+        "quote": "The AI insights are incredible. We're finding connections in data we never knew existed.",
+        "author": "Michael Rodriguez",
+        "role": "Data Analyst, DataFlow Inc",
+        "avatar": "MR"
+      },
+      {
+        "quote": "Cut our research time by 70%. Best investment we've made this year.",
+        "author": "Emma Thompson",
+        "role": "CEO, StartupLab",
+        "avatar": "ET"
+      }
+    ],
+    "stats": [
+      { "value": "10M+", "label": "Searches Performed" },
+      { "value": "50K+", "label": "Active Users" },
+      { "value": "99.9%", "label": "Uptime" },
+      { "value": "<100ms", "label": "Avg Response Time" }
+    ]
+  },
+  "metaTitle": "MasterSearch - AI-Powered Search Intelligence | PrismicX",
+  "metaDescription": "Transform your search experience with AI-powered intelligence. Find exactly what you need with MasterSearch's advanced algorithms and lightning-fast results.",
+  "ogImage": "/images/og-mastersearch.jpg",
+  "canonicalURL": "https://prismicx.com/apps/mastersearch",
+  "themeFonts": {
+    "heading": "Inter",
+    "body": "Inter"
+  }
+}

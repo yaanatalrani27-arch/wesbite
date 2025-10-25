@@ -1,0 +1,112 @@
+{
+  "name": "Studio",
+  "themeColor": "#F59E0B",
+  "themeColorLight": "#FCD34D",
+  "themeColorDark": "#D97706",
+  "contentRefs": {
+    "hero": {
+      "title": "We Build Digital Excellence",
+      "subtitle": "PrismicX Studio crafts premium web experiences and intelligent tools that transform how businesses operate.",
+      "cta": "View Our Work",
+      "secondaryCta": "Start a Project"
+    },
+    "services": [
+      {
+        "title": "Web Development",
+        "description": "Production-ready web applications built with modern frameworks and best practices.",
+        "icon": "Code2",
+        "highlight": "React, Next.js, TypeScript"
+      },
+      {
+        "title": "AI Integration",
+        "description": "Intelligent features that enhance user experience and automate workflows.",
+        "icon": "Brain",
+        "highlight": "LLMs, Machine Learning, Automation"
+      },
+      {
+        "title": "Product Design",
+        "description": "Beautiful, intuitive interfaces that users love and businesses rely on.",
+        "icon": "Palette",
+        "highlight": "UI/UX, Branding, Design Systems"
+      },
+      {
+        "title": "SaaS Development",
+        "description": "Full-stack SaaS platforms from concept to launch and beyond.",
+        "icon": "Rocket",
+        "highlight": "MVP to Scale, DevOps, Infrastructure"
+      }
+    ],
+    "portfolio": [
+      {
+        "name": "MasterSearch",
+        "description": "AI-powered search intelligence platform",
+        "category": "SaaS Product",
+        "tech": ["React", "AI/ML", "Firebase"],
+        "link": "/apps/mastersearch",
+        "status": "Live"
+      },
+      {
+        "name": "CallAI",
+        "description": "Intelligent call analytics and automation",
+        "category": "AI Tool",
+        "tech": ["Next.js", "AI", "WebRTC"],
+        "link": "#",
+        "status": "Coming Soon"
+      },
+      {
+        "name": "Vision",
+        "description": "Visual recognition and analysis platform",
+        "category": "AI Product",
+        "tech": ["React", "Computer Vision", "TensorFlow"],
+        "link": "#",
+        "status": "Coming Soon"
+      }
+    ],
+    "stats": [
+      { "value": "50+", "label": "Projects Delivered" },
+      { "value": "30+", "label": "Happy Clients" },
+      { "value": "5+", "label": "Years Experience" },
+      { "value": "100%", "label": "Client Satisfaction" }
+    ],
+    "approach": [
+      {
+        "step": "1",
+        "title": "Discover",
+        "description": "We deeply understand your business, users, and goals."
+      },
+      {
+        "step": "2",
+        "title": "Design",
+        "description": "Craft intuitive experiences backed by research and best practices."
+      },
+      {
+        "step": "3",
+        "title": "Develop",
+        "description": "Build with modern tech, clean code, and scalable architecture."
+      },
+      {
+        "step": "4",
+        "title": "Deploy",
+        "description": "Launch confidently with testing, monitoring, and support."
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "PrismicX Studio delivered beyond our expectations. The attention to detail and technical expertise is world-class.",
+        "author": "David Park",
+        "role": "CTO, FinanceHub",
+        "avatar": "DP"
+      },
+      {
+        "quote": "They transformed our vision into reality. The platform they built handles millions of requests flawlessly.",
+        "author": "Lisa Wang",
+        "role": "Founder, CloudMetrics",
+        "avatar": "LW"
+      }
+    ]
+  },
+  "metaTitle": "PrismicX Studio - Digital Agency | Web Development & AI Solutions",
+  "metaDescription": "Premium web development and AI integration services. We build production-ready applications and intelligent tools that transform businesses.",
+  "ogImage": "/images/og-studio.jpg",
+  "canonicalURL": "https://prismicx.com/studio"
+}
