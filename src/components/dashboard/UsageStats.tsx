@@ -26,13 +26,8 @@ export default function UsageStats({ themeColor, stats }: UsageStatsProps) {
       <h2 className="text-2xl font-bold text-white mb-6">Usage Statistics</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
-          <div key={index} className="group relative">
-            <div
-              className="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
-              style={{ background: `linear-gradient(to bottom right, ${themeColor}20, ${themeColor}10)` }}
-            />
-
-            <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all">
+          <div key={index}>
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all">
               <div className="flex items-start justify-between mb-4">
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center"

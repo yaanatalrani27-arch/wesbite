@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
 import AppSelector from '../components/dashboard/AppSelector';
 import UsageStats from '../components/dashboard/UsageStats';
-import SubscriptionCard from '../components/dashboard/SubscriptionCard';
+import CurrentPlan from '../components/dashboard/CurrentPlan';
+import PaymentPortal from '../components/dashboard/PaymentPortal';
 import masterSearchConfig from '../../app-config/mastersearch.json';
 import studioConfig from '../../app-config/studio.json';
 
@@ -116,131 +117,107 @@ export default function Dashboard() {
     }
   };
 
-  const handlePlanSelect = (planName: string) => {
-    console.log(`Selected plan: ${planName} for ${selectedApp?.name}`);
-  };
-
   return (
     <DashboardLayout themeColor={themeColor} appName={selectedApp?.name}>
-      <div className="relative">
-        <div className="absolute inset-0 -top-32">
-          <div
-            className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse opacity-20"
-            style={{ background: `radial-gradient(circle, ${themeColor}, transparent)` }}
-          />
-          <div
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse opacity-20"
-            style={{ background: `radial-gradient(circle, ${themeColor}, transparent)`, animationDelay: '2s' }}
-          />
-        </div>
+      <div className="mb-12">
+        <h1 className="text-5xl md:text-6xl font-bold mb-4">
+          <span
+            className="bg-gradient-to-r bg-clip-text text-transparent"
+            style={{
+              backgroundImage: `linear-gradient(to right, ${themeColor}, ${themeColor}cc)`
+            }}
+          >
+            Dashboard
+          </span>
+        </h1>
+        <p className="text-xl text-slate-400">
+          Manage your subscriptions and track usage across all apps
+        </p>
+      </div>
 
-        <div className="relative z-10">
-          <div className="mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              <span
-                className="bg-gradient-to-r bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: `linear-gradient(to right, ${themeColor}, ${themeColor}cc)`
-                }}
-              >
-                Dashboard
-              </span>
-            </h1>
-            <p className="text-xl text-slate-400">
-              Manage your subscriptions and track usage across all apps
-            </p>
+      <AppSelector
+        apps={apps}
+        selectedApp={selectedAppId}
+        onSelectApp={setSelectedAppId}
+      />
+
+      {selectedApp && (
+        <>
+          <UsageStats
+            themeColor={themeColor}
+            stats={getUsageStatsForApp(selectedApp.id)}
+          />
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <CurrentPlan
+              appName={selectedApp.name}
+              themeColor={themeColor}
+              plan={selectedApp.pricing?.pro || {
+                name: 'Pro',
+                price: '$0',
+                period: 'month',
+                features: []
+              }}
+            />
+
+            <PaymentPortal
+              appName={selectedApp.name}
+              themeColor={themeColor}
+              currentPlan={{
+                name: selectedApp.pricing?.pro.name || 'Pro',
+                price: selectedApp.pricing?.pro.price || '$0',
+                nextBilling: 'January 15, 2026'
+              }}
+            />
           </div>
 
-          <AppSelector
-            apps={apps}
-            selectedApp={selectedAppId}
-            onSelectApp={setSelectedAppId}
-          />
-
-          {selectedApp && (
-            <>
-              <UsageStats
-                themeColor={themeColor}
-                stats={getUsageStatsForApp(selectedApp.id)}
-              />
-
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-white mb-6">Subscription Plans</h2>
-                <div className="grid md:grid-cols-3 gap-8">
-                  {selectedApp.pricing && (
-                    <>
-                      <SubscriptionCard
-                        tier={selectedApp.pricing.free}
-                        themeColor={themeColor}
-                        currentTier={false}
-                        onSelect={() => handlePlanSelect(selectedApp.pricing!.free.name)}
-                      />
-                      <SubscriptionCard
-                        tier={selectedApp.pricing.pro}
-                        themeColor={themeColor}
-                        currentTier={true}
-                        onSelect={() => handlePlanSelect(selectedApp.pricing!.pro.name)}
-                      />
-                      <SubscriptionCard
-                        tier={selectedApp.pricing.enterprise}
-                        themeColor={themeColor}
-                        currentTier={false}
-                        onSelect={() => handlePlanSelect(selectedApp.pricing!.enterprise.name)}
-                      />
-                    </>
-                  )}
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+            <h2 className="text-2xl font-bold text-white mb-6">Recent Activity</h2>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between py-4 border-b border-white/10">
+                <div>
+                  <div className="font-semibold text-white">Subscription Renewed</div>
+                  <div className="text-sm text-slate-400">Pro Plan - Monthly</div>
+                </div>
+                <div className="text-right">
+                  <div className="font-semibold" style={{ color: themeColor }}>
+                    {selectedApp.pricing?.pro.price || '$0'}
+                  </div>
+                  <div className="text-sm text-slate-400">2 days ago</div>
                 </div>
               </div>
-
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 mb-8">
-                <h2 className="text-2xl font-bold text-white mb-4">Recent Activity</h2>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between py-4 border-b border-white/10">
-                    <div>
-                      <div className="font-semibold text-white">Subscription Renewed</div>
-                      <div className="text-sm text-slate-400">Pro Plan - Monthly</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="font-semibold" style={{ color: themeColor }}>
-                        ${selectedApp.pricing?.pro.price.replace('$', '') || '0'}
-                      </div>
-                      <div className="text-sm text-slate-400">2 days ago</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between py-4 border-b border-white/10">
-                    <div>
-                      <div className="font-semibold text-white">Usage Milestone</div>
-                      <div className="text-sm text-slate-400">Reached 1000 total uses</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-sm text-slate-400">5 days ago</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between py-4">
-                    <div>
-                      <div className="font-semibold text-white">Account Created</div>
-                      <div className="text-sm text-slate-400">Welcome to {selectedApp.name}</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-sm text-slate-400">30 days ago</div>
-                    </div>
-                  </div>
+              <div className="flex items-center justify-between py-4 border-b border-white/10">
+                <div>
+                  <div className="font-semibold text-white">Usage Milestone</div>
+                  <div className="text-sm text-slate-400">Reached 1000 total uses</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-sm text-slate-400">5 days ago</div>
                 </div>
               </div>
-            </>
-          )}
-
-          {!selectedApp && (
-            <div className="text-center py-20">
-              <div className="text-6xl mb-6">📊</div>
-              <h2 className="text-3xl font-bold text-white mb-4">Select an App to Get Started</h2>
-              <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                Choose one of your apps above to view detailed usage statistics, manage your subscription, and track your activity.
-              </p>
+              <div className="flex items-center justify-between py-4">
+                <div>
+                  <div className="font-semibold text-white">Account Created</div>
+                  <div className="text-sm text-slate-400">Welcome to {selectedApp.name}</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-sm text-slate-400">30 days ago</div>
+                </div>
+              </div>
             </div>
-          )}
+          </div>
+        </>
+      )}
+
+      {!selectedApp && (
+        <div className="text-center py-20">
+          <div className="text-6xl mb-6">📊</div>
+          <h2 className="text-3xl font-bold text-white mb-4">Select an App to Get Started</h2>
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            Choose one of your apps above to view detailed usage statistics, manage your subscription, and track your activity.
+          </p>
         </div>
-      </div>
+      )}
     </DashboardLayout>
   );
 }
